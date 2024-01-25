@@ -7,8 +7,7 @@
             <td>Employee Name</td>
             <td>Employee Id</td>
             <td *ngIf="datarole.role==='Admin'|| datarole.role==='superAdmin'">Edit</td>
-          r>
-            <!-- <td>Delete</td> -->
+            <td *ngIf="datarole.role==='superAdmin'">Delete</td>
     </thead>
   <tbody>
          <tr *ngFor="let item of viewArray" >
