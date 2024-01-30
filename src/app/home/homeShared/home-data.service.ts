@@ -76,5 +76,9 @@ export class HomeDataService {
     this.companyDetail.splice(refid,0,{CompanyName: CompanyName, CompanyId: CompanyId})
     // this.userDetail[]
   }
+  authentication()
+{
+  return localStorage.getItem('token')
+}
 }
 
