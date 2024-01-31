@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeDataService } from '../homeShared/home-data.service';
 import { Company } from '../homeShared/companylist';
+import { ActivatedRoute } from '@angular/router';
+import { LoginService } from 'src/app/shared/login.service';
 
 
 @Component({
@@ -11,7 +13,7 @@ import { Company } from '../homeShared/companylist';
 export class CompanyComponent implements OnInit {
 
   
-  constructor(private dataService :HomeDataService){}
+  constructor(private dataService :HomeDataService,private route:ActivatedRoute,private ls:LoginService){}
 
   viewArray2:Company[]=this.dataService.viewCompanyData();
   EditArray:Company[]=[];
@@ -20,6 +22,7 @@ export class CompanyComponent implements OnInit {
   data:any;
   dataRole:any;
   view:boolean=true;
+  isPermission:any;
   
 
   ngOnInit() {
@@ -30,7 +33,10 @@ export class CompanyComponent implements OnInit {
     this.dataRole=JSON.parse(this.data)
  
     this.view=true;
+  
+    
   }
+
 
 
   delete(val:Company){

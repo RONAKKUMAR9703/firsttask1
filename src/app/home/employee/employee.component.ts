@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HomeDataService } from '../homeShared/home-data.service';
 
 import { Employee } from '../homeShared/employeeList';
+import { LoginService } from 'src/app/shared/login.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -10,7 +12,8 @@ import { Employee } from '../homeShared/employeeList';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(private dataservice :HomeDataService){}
+  constructor(private dataservice :HomeDataService,private route:ActivatedRoute,private ls:LoginService){
+  }
 
   viewArray:Employee[]=this.dataservice.viewEmployeeData();
   EditArray:Employee[]=[];
@@ -19,6 +22,7 @@ export class EmployeeComponent implements OnInit {
   data:any;
   view:boolean=true;
   datarole:any;
+  isPermission:any;
 
 
   ngOnInit() {
@@ -27,6 +31,7 @@ export class EmployeeComponent implements OnInit {
     this.datarole=JSON.parse(this.data)
     
     this.view=true;
+    
   }
 
 
@@ -44,6 +49,11 @@ export class EmployeeComponent implements OnInit {
       return ele.EmpId === val.EmpId && ele.EmpName === val.EmpName
       })
       this.EditArray.push(val);
+      console.log(this.EditArray);
+      if(this.EditArray.length>1){
+        this.EditArray.shift();
+      }
+      
       this.view=true;
     
   }

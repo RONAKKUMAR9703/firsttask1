@@ -1,6 +1,8 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { HomeDataService } from '../homeShared/home-data.service';
 import { Branch } from '../homeShared/branchlist';
+import { ActivatedRoute } from '@angular/router';
+import { LoginService } from 'src/app/shared/login.service';
 
 
 @Component({
@@ -10,7 +12,7 @@ import { Branch } from '../homeShared/branchlist';
 })
 export class BranchComponent implements OnInit {
 
-  constructor(private dataService :HomeDataService){}
+  constructor(private dataService :HomeDataService,private route:ActivatedRoute,private ls:LoginService){}
 
   viewArray1:Branch[]=this.dataService.viewBranchData();
   EditArray:Branch[]=[];
@@ -19,6 +21,7 @@ export class BranchComponent implements OnInit {
   view:boolean=true;
   data:any;
   dataRole:any
+  isPermission:any
 
   ngOnInit() {
     this.data=localStorage.getItem('keyPass')
@@ -26,8 +29,11 @@ export class BranchComponent implements OnInit {
     this.dataRole=JSON.parse(this.data)
   
     this.view=true;
+
+   
   }
   
+ 
 
 
   deleteOpp(val:Branch){

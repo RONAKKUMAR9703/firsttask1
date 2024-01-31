@@ -9,5 +9,6 @@ export class HomeComponent {
   logOut(){
 
     localStorage.removeItem('token');
+    sessionStorage.removeItem('role')
   }
 }
