@@ -23,6 +23,7 @@ export class EmployeeComponent implements OnInit {
   view:boolean=true;
   datarole:any;
   isPermission:any;
+  AuthDelete:boolean=false;
 
 
   ngOnInit() {
@@ -40,8 +41,9 @@ export class EmployeeComponent implements OnInit {
     this.index=this.viewArray.findIndex((ele)=>{
       return ele.EmpId === val.EmpId && ele.EmpName === val.EmpName
       })
+      if(!this.AuthDelete){
     this.viewArray.splice(this.index,1)
-
+      }
   }
 
   edit(val:Employee){
@@ -55,6 +57,7 @@ export class EmployeeComponent implements OnInit {
       }
       
       this.view=true;
+      this.AuthDelete=true;
     
   }
 
@@ -62,5 +65,6 @@ export class EmployeeComponent implements OnInit {
     this.dataservice.editFunEmp(this.id,EmpId,EmpName);
     this.view=!this.view;
     this.EditArray=[];
+    this.AuthDelete=false;
   }
 }

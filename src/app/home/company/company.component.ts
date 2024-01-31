@@ -23,6 +23,7 @@ export class CompanyComponent implements OnInit {
   dataRole:any;
   view:boolean=true;
   isPermission:any;
+  AuthDelete:boolean=false;
   
 
   ngOnInit() {
@@ -43,8 +44,9 @@ export class CompanyComponent implements OnInit {
     this.index=this.viewArray2.findIndex((ele)=>{
       return ele.CompanyId === val.CompanyId && ele.CompanyName === val.CompanyName
       })
+      if(!this.AuthDelete){
     this.viewArray2.splice(this.index,1)
-
+  }
   }
 
   edit(val:Company){
@@ -53,13 +55,15 @@ export class CompanyComponent implements OnInit {
       })
       this.EditArray.push(val);
       this.view=true;
+      this.AuthDelete=true
     
   }
 
   formCompanyEditData(CompanyId:string,CompanyName:string){
     this.dataService.editFunCom(this.id,CompanyId,CompanyName);
     this.view=!this.view;
-    this.EditArray=[]
+    this.EditArray=[];
+    this.AuthDelete=false
   }
 
 }

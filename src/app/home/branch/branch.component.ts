@@ -22,6 +22,7 @@ export class BranchComponent implements OnInit {
   data:any;
   dataRole:any
   isPermission:any
+  AuthDelete:boolean=false;
 
   ngOnInit() {
     this.data=localStorage.getItem('keyPass')
@@ -41,8 +42,9 @@ export class BranchComponent implements OnInit {
     this.index= this.viewArray1.findIndex(ele=>{
       return ele.BranchId === val.BranchId && ele.BranchName === val.BranchName
     })
+    if(!this.AuthDelete){
     this.viewArray1.splice(this.index,1)
-
+    }
   }
   edit(val:Branch){
     this.id = this.dataService.branchDetail.findIndex((ele)=>{
@@ -50,13 +52,14 @@ export class BranchComponent implements OnInit {
       })
       this.EditArray.push(val);
       this.view=true;
-    
+    this.AuthDelete=true;
     
   }
   formBranchEditData(BranchId:string,BranchName:string){
     this.dataService.editFunBranch(this.id,BranchName,BranchId);
     this.view=!this.view;
-    this.EditArray=[]
+    this.EditArray=[];
+    this.AuthDelete=false;
   }
 
 }
