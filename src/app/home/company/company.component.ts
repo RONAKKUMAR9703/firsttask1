@@ -54,6 +54,9 @@ export class CompanyComponent implements OnInit {
       return ele.CompanyId === val.CompanyId && ele.CompanyName === val.CompanyName
       })
       this.EditArray.push(val);
+      if(this.EditArray.length>1){
+        this.EditArray.shift();
+      }
       this.view=true;
       this.AuthDelete=true
     

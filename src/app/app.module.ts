@@ -10,6 +10,7 @@ import { EmployeeComponent } from './home/employee/employee.component';
 import { CompanyComponent } from './home/company/company.component';
 import { BranchComponent } from './home/branch/branch.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SignUpComponent } from './login/sign-up/sign-up.component';
     EmployeeComponent,
     CompanyComponent,
     BranchComponent,
-    SignUpComponent
+    SignUpComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

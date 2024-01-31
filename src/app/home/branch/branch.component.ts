@@ -51,6 +51,9 @@ export class BranchComponent implements OnInit {
       return ele.BranchId === val.BranchId && ele.BranchName === val.BranchName
       })
       this.EditArray.push(val);
+      if(this.EditArray.length>1){
+        this.EditArray.shift();
+      }
       this.view=true;
     this.AuthDelete=true;
     

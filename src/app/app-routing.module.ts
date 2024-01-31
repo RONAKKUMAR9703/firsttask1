@@ -9,6 +9,7 @@ import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { CanActivate } from './shared/canActivate.guard';
 import { CanDeactivate } from './home/homeShared/CanDeactivate.guard';
 import { PermissionGuard } from './permission.guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -19,8 +20,9 @@ const routes: Routes = [
     {path:'company', component:CompanyComponent,data:{permission:["superAdmin","Admin"]},canActivate:[PermissionGuard]},
     {path:'branch', component:BranchComponent,data:{permission:["superAdmin"]},canActivate:[PermissionGuard]},
   ]},
-  {path:'signUp' ,component:SignUpComponent},
-  {path:'login/signUp' ,redirectTo:'signUp',pathMatch:'full'}
+  {path:'signUp' ,component:SignUpComponent,canActivate:[CanDeactivate]},
+  {path:'login/signUp' ,redirectTo:'signUp',pathMatch:'full'},
+  {path:'**', component:PageNotFoundComponent}
   
 ];
 
