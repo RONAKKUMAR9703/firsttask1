@@ -1,24 +1,7 @@
-<!-- <body
-    style="background-image: url(https://images.unsplash.com/photo-1583770539147-581738d1310a?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
 
 
-    <nav class="navbar navbar-dark bg-dark">
-        <div>
-            <a class="navbar-brand" routerLink="/home" style="margin-left: 1rem;" >Home</a>
-            <a class="navbar-brand" routerLink="employee"  style="margin-left: 1rem;">Employee</a>
-            <a class="navbar-brand" routerLink="company"  style="margin-left: 1rem;">Company</a>
-            <a class="navbar-brand" routerLink="branch"  style="margin-left: 1rem;">Branch</a>
-        </div>
 
-        <button class="btn btn-info" style="margin-right: 2rem;" routerLink="">Log Out</button>
-    </nav>
-    
-        <router-outlet></router-outlet>
-
-</body> -->
-
-
-<body style="background-image: url(https://img.freepik.com/free-vector/grunge-watercolor-background-using-pastel-colours_1048-6530.jpg?w=740&t=st=1706089250~exp=1706089850~hmac=707c60c884707e0b247d9df3256d6ba5c29bfb9fa746d6eec0f2ec3f5bf5e10a);
+<!-- <body style="background-image: url(https://img.freepik.com/free-vector/grunge-watercolor-background-using-pastel-colours_1048-6530.jpg?w=740&t=st=1706089250~exp=1706089850~hmac=707c60c884707e0b247d9df3256d6ba5c29bfb9fa746d6eec0f2ec3f5bf5e10a);
 background-repeat: no-repeat;
 background-size: cover;
 height:919px;"
@@ -35,4 +18,26 @@ routerLinkActive="Active" [routerLinkActiveOptions]="{exact:true}">
     <div>
         <router-outlet></router-outlet>
     </div>
+</body> -->
+
+
+<body style="background-image: url(https://img.freepik.com/premium-photo/abstract-curve-pattern-blue-white-background_49758-667.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+height:953px;;">
+ 
+<link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+<nav class="navbar navbar-dark bg-dark">
+    <!-- <h1>Simple Menu Navigation</h1> -->
+    <div>
+    <a routerLink="/home" class="btn btn-success m-2" id="home">Home</a>
+    <a routerLink="employee" class="btn btn-info m-2" id="employee">Employee</a>
+    <a routerLink="company" class="btn btn-warning m-2" id="company">Company</a>
+    <a routerLink="branch" class="btn btn-danger m-2" id="branch">Branch</a>
+</div>
+<button class="btn btn-primary" style="margin-right: 2rem;" routerLink="" (click)="logOut()" id="signOut">Sign Out</button>
+</nav>
+<div>
+    <router-outlet></router-outlet>
+</div>
 </body>
