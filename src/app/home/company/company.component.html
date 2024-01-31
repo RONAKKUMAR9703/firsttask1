@@ -27,7 +27,7 @@
 </div>
 
 
-
+<div *ngIf="view">
 <form style="width: 50rem;padding-left: 20rem;" *ngFor="let item of EditArray">
     <div data-mdb-input-init class="form-outline mb-4">
         <input type="text" id="form6Example3" class="form-control" #CompanyName value="{{ item.CompanyName }}" name="BranchName" />
@@ -41,3 +41,4 @@
 
     <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4" (click)="formCompanyEditData(CompanyId.value,CompanyName.value)">Update</button>
 </form>
+</div>
