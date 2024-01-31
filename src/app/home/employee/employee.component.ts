@@ -31,7 +31,7 @@ export class EmployeeComponent implements OnInit {
 
     this.datarole=JSON.parse(this.data)
     
-    this.view=true;
+    // this.view=true;
     
   }
 
@@ -41,8 +41,8 @@ export class EmployeeComponent implements OnInit {
     this.index=this.viewArray.findIndex((ele)=>{
       return ele.EmpId === val.EmpId && ele.EmpName === val.EmpName
       })
-      if(this.AuthDelete){
-        this.view=false;
+      if(!this.AuthDelete){
+        // this.view=false;
     this.viewArray.splice(this.index,1)
       }
   }
