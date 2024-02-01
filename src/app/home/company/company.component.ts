@@ -44,8 +44,11 @@ export class CompanyComponent implements OnInit {
     this.index=this.viewArray2.findIndex((ele)=>{
       return ele.CompanyId === val.CompanyId && ele.CompanyName === val.CompanyName
       })
-      if(!this.AuthDelete){
-        // this.view=false;
+      if(this.AuthDelete){
+        this.view=false;
+    this.viewArray2.splice(this.index,1)
+  }
+  else{
     this.viewArray2.splice(this.index,1)
   }
   }

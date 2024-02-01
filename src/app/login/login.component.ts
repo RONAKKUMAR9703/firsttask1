@@ -30,6 +30,7 @@ export class LoginComponent {
         // this.logService.isUserLogedIn=true;
       }
     })
+    
    
 
     }

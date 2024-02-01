@@ -12,13 +12,13 @@
     <form class="p-3 mt-3" #formData="ngForm" (ngSubmit)="validateUser(formData.value)">
         <div class="form-field d-flex align-items-center">
             <span class="far fa-user"></span>
-            <input type="text" ngModel name="UserName" id="userName" placeholder="Username">
+            <input type="text" ngModel name="UserName" id="userName" placeholder="Username" required>
         </div>
         <div class="form-field d-flex align-items-center">
             <span class="fas fa-key"></span>
-            <input type="password" ngModel name="pass" id="pwd" placeholder="Password">
+            <input type="password" ngModel name="pass" id="pwd" placeholder="Password" required>
         </div>
-        <button class="btn mt-3" type="submit">Login</button>
+        <button class="btn mt-3" type="submit" [disabled]="!formData.valid">Login</button>
     </form>
     <div class="text-center fs-6">
          <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a routerLink="signUp"

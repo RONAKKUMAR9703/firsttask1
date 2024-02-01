@@ -42,9 +42,12 @@ export class BranchComponent implements OnInit {
     this.index= this.viewArray1.findIndex(ele=>{
       return ele.BranchId === val.BranchId && ele.BranchName === val.BranchName
     })
-    if(!this.AuthDelete){
-      // this.view=false;
+    if(this.AuthDelete){
+      this.view=false;
     this.viewArray1.splice(this.index,1)
+    }
+    else{
+      this.viewArray1.splice(this.index,1)
     }
       
   
