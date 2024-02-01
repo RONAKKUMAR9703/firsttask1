@@ -21,10 +21,10 @@ routerLinkActive="Active" [routerLinkActiveOptions]="{exact:true}">
 </body> -->
 
 
-<body style="background-image: url(https://img.freepik.com/premium-photo/abstract-curve-pattern-blue-white-background_49758-667.jpg);
+<body style="background-image: url(https://wallpapers.com/images/hd/the-avengers-vm16xv4a69smdauy.jpg);
 background-repeat: no-repeat;
 background-size: cover;
-height:953px;;">
+height:919px;width: 100%;">
  
 <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
 <nav class="navbar navbar-dark bg-dark">
@@ -40,4 +40,14 @@ height:953px;;">
 <div>
     <router-outlet></router-outlet>
 </div>
+
+<!-- <div class="overlay" *ngIf="showLoader"> -->
+   
+  
+    <div class="overlay" *ngIf="showLoader">
+        <div class="loader">
+
+        </div>
+      </div>
+<!-- </div> -->
 </body>

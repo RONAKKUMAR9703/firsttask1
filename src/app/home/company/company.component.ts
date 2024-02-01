@@ -13,9 +13,11 @@ import { LoginService } from 'src/app/shared/login.service';
 export class CompanyComponent implements OnInit {
 
   
-  constructor(private dataService :HomeDataService,private route:ActivatedRoute,private ls:LoginService){}
+  constructor(private dataService :HomeDataService,private route:ActivatedRoute,private ls:LoginService){
+    this.viewArray2=route.snapshot.data['value']
+  }
 
-  viewArray2:Company[]=this.dataService.viewCompanyData();
+  viewArray2:Company[]=[];
   EditArray:Company[]=[];
   id:number=0;
   index:number=0;

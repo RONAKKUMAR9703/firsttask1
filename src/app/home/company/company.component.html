@@ -1,12 +1,13 @@
 
 <div style=" width: 27rem; padding-left: 2rem;">
     <table id="t" class="table table-bordered mt-5" style="border-collapse: collapse;">
-    <thead class="table-info">
-        <tr >
+    <thead >
+        <tr class="table-primary">
             <td>Company Name</td>
             <td>Company Id</td>
             <td *ngIf="dataRole.role==='Admin'|| dataRole.role==='superAdmin'">Edit</td>
             <td *ngIf="dataRole.role==='superAdmin'">Delete</td>
+            </tr>
     </thead>
     <tbody>
   

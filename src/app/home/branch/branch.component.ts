@@ -12,9 +12,11 @@ import { LoginService } from 'src/app/shared/login.service';
 })
 export class BranchComponent implements OnInit {
 
-  constructor(private dataService :HomeDataService,private route:ActivatedRoute,private ls:LoginService){}
+  constructor(private dataService :HomeDataService,private route:ActivatedRoute,private ls:LoginService){
+    this.viewArray1=route.snapshot.data['value']
+  }
 
-  viewArray1:Branch[]=this.dataService.viewBranchData();
+  viewArray1:Branch[]=[];
   EditArray:Branch[]=[];
   id:number=0;
   index:number=0;

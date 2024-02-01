@@ -13,9 +13,10 @@ import { ActivatedRoute } from '@angular/router';
 export class EmployeeComponent implements OnInit {
 
   constructor(private dataservice :HomeDataService,private route:ActivatedRoute,private ls:LoginService){
+    this.viewArray=route.snapshot.data['value']
   }
 
-  viewArray:Employee[]=this.dataservice.viewEmployeeData();
+  viewArray:Employee[]=[];
   EditArray:Employee[]=[];
   id:number=0;
   index:number =0;

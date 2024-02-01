@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Employee } from './employeeList';
 import { Company } from './companylist';
 import { Branch } from './branchlist';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -44,6 +45,31 @@ export class HomeDataService {
     {BranchName: "Manager", BranchId: "4"},
     {BranchName: "QA tester", BranchId: "5" }
   ]
+
+  getallemployee(){
+    return new Observable((sub)=> {
+      setTimeout(()=>{
+        sub.next(this.empDetail);
+      },1000)
+    })
+  }
+
+  getallcompany(){
+    return new Observable((sub)=> {
+      setTimeout(()=>{
+        sub.next(this.companyDetail);
+      },1000)
+    })
+  }
+
+  getallbranch(){
+    return new Observable((sub)=> {
+      setTimeout(()=>{
+        sub.next(this.branchDetail);
+      },1000)
+    })
+  }
+
 
 
   viewBranchData()
