@@ -1,6 +1,3 @@
-
-
-
 <!-- <body style="background-image: url(https://img.freepik.com/free-vector/grunge-watercolor-background-using-pastel-colours_1048-6530.jpg?w=740&t=st=1706089250~exp=1706089850~hmac=707c60c884707e0b247d9df3256d6ba5c29bfb9fa746d6eec0f2ec3f5bf5e10a);
 background-repeat: no-repeat;
 background-size: cover;
@@ -21,33 +18,37 @@ routerLinkActive="Active" [routerLinkActiveOptions]="{exact:true}">
 </body> -->
 
 
-<body style="background-image: url(https://wallpapers.com/images/hd/the-avengers-vm16xv4a69smdauy.jpg);
+<body style="background-image:
+url(https://img.freepik.com/free-vector/white-abstract-background_23-2148810113.jpg?size=626&ext=jpg&ga=GA1.1.1788068356.1706745600&semt=ais);
 background-repeat: no-repeat;
 background-size: cover;
 height:919px;width: 100%;">
- 
-<link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
-<nav class="navbar navbar-dark bg-dark">
-    <!-- <h1>Simple Menu Navigation</h1> -->
-    <div>
-    <a routerLink="/home" class="btn btn-success m-2" id="home">Home</a>
-    <a routerLink="employee" class="btn btn-info m-2" id="employee">Employee</a>
-    <a routerLink="company" class="btn btn-warning m-2" id="company">Company</a>
-    <a routerLink="branch" class="btn btn-danger m-2" id="branch">Branch</a>
-</div>
-<button class="btn btn-primary" style="margin-right: 2rem;" routerLink="" (click)="logOut()" id="signOut">Sign Out</button>
-</nav>
-<div>
-    <router-outlet></router-outlet>
-</div>
 
-<!-- <div class="overlay" *ngIf="showLoader"> -->
-   
-  
+    <!-- <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'> -->
+    <nav class="navbar navbar-dark bg-dark">
+        <!-- <h1>Simple Menu Navigation</h1> -->
+        <div>
+            <a routerLink="/home" class="btn btn-success m-2" id="home">Home</a>
+            <a routerLink="employee" class="btn btn-info m-2" id="employee">Employee</a>
+            <a routerLink="company" class="btn btn-warning m-2" id="company">Company</a>
+            <a routerLink="branch" class="btn btn-danger m-2" id="branch">Branch</a>
+        </div>
+        <div>
+        <a routerLink="/favourite" class="btn btn-warning m-2"  id="star" > <i class="bi bi-bookmark-star"></i></a>
+        <button class="btn btn-primary m-2" routerLink="" (click)="logOut()" id="signOut">SignOut</button>
+    </div>
+    </nav>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+
+    <!-- <div class="overlay" *ngIf="showLoader"> -->
+
+
     <div class="overlay" *ngIf="showLoader">
         <div class="loader">
 
         </div>
-      </div>
-<!-- </div> -->
+    </div>
+    <!-- </div> -->
 </body>

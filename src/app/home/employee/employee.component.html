@@ -1,47 +1,49 @@
+<div class="table-wrapper">
+    <table id="t" class="fl-table">
+        <thead>
 
-<div style=" width: 27rem; padding-left: 2rem;">
-<table id="t" class="table table-bordered mt-5" style="border-collapse: collapse;">
-    <thead >
-
-        <tr class="table-primary">
-            <td>Employee Name</td>
-            <td>Employee Id</td>
-            <td *ngIf="datarole.role==='Admin'|| datarole.role==='superAdmin'">Edit</td>
-            <td *ngIf="datarole.role==='superAdmin'">Delete</td>
+            <tr>
+                <th>Employee Name</th>
+                <th>Employee Id</th>
+                <th *ngIf="datarole.role==='Admin'|| datarole.role==='superAdmin'">Edit</th>
+                <th *ngIf="datarole.role==='superAdmin'">Delete</th>
             </tr>
-    </thead>
-  <tbody>
-         <tr *ngFor="let item of viewArray" >
-            <td>{{ item. EmpName }}</td>
-            <td>{{ item.EmpId }}</td>
-            <td *ngIf="datarole.role==='Admin'|| datarole.role==='superAdmin'">
-                <a (click)="edit(item)"><i class="bi bi-pencil"></i></a>
-            </td>
-            <td *ngIf="datarole.role==='superAdmin'">
-                <a (click)="delete(item)"><i class="bi bi-trash"></i></a>
-            </td>
-            
-        
-         </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of viewArray">
+                <td>{{ item. EmpName }}</td>
+                <td>{{ item.EmpId }}</td>
+                <td *ngIf="datarole.role==='Admin'|| datarole.role==='superAdmin'">
+                    <a (click)="edit(item)"><i class="bi bi-pencil"></i></a>
+                </td>
+                <td *ngIf="datarole.role==='superAdmin'">
+                    <a (click)="delete(item)"><i class="bi bi-trash"></i></a>
+                </td>
 
-        </tbody> 
 
-</table>
+            </tr>
+
+        </tbody>
+
+    </table>
 </div>
 
 
 <div *ngIf="view">
-<form style="width: 50rem;padding-left: 20rem;" *ngFor="let item of EditArray">
-    <div data-mdb-input-init class="form-outline mb-4">
-        <input type="text" id="form6Example3" class="form-control" #EmpName value="{{ item.EmpName }}" name="BranchName" />
-        <label class="form-label" for="form6Example3">Employee name</label>
-    </div>
+    <form style="width: 50rem;padding-left: 20rem;margin-left: 23rem;" *ngFor="let item of EditArray">
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="form6Example3" class="form-control" #EmpName value="{{ item.EmpName }}"
+                name="BranchName" />
+            <label class="form-label" for="form6Example3">Employee name</label>
+        </div>
 
-    <div data-mdb-input-init class="form-outline mb-4">
-        <input type="text" id="form6Example6" class="form-control" #EmpId value="{{ item.EmpId }}" name="BranchId"/>
-        <label class="form-label" for="form6Example6">Employee Id</label>
-    </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="form6Example6" class="form-control" #EmpId value="{{ item.EmpId }}"
+                name="BranchId" />
+            <label class="form-label" for="form6Example6">Employee Id</label>
+        </div>
 
-    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4" (click)="formEmployeeEditData(EmpId.value,EmpName.value)">Update</button>
-</form>
+        <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4"
+            (click)="formEmployeeEditData(EmpId.value,EmpName.value)">Update</button>
+    </form>
 </div>

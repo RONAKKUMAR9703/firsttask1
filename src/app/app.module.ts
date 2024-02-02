@@ -11,6 +11,7 @@ import { CompanyComponent } from './home/company/company.component';
 import { BranchComponent } from './home/branch/branch.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FavouriteComponent } from './home/favourite/favourite.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CompanyComponent,
     BranchComponent,
     SignUpComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FavouriteComponent
   ],
   imports: [
     BrowserModule,

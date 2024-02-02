@@ -1,13 +1,10 @@
-
-
-
-
-  <div class="wrapper ">
+<div class="wrapper ">
     <div class="logo">
-        <img src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg" alt="">
+        <img src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg"
+            alt="">
     </div>
     <div class="text-center mt-4 name">
-        Login Page 
+        Login Page
     </div>
     <form class="p-3 mt-3" #formData="ngForm" (ngSubmit)="validateUser(formData.value)">
         <div class="form-field d-flex align-items-center">
@@ -21,8 +18,7 @@
         <button class="btn mt-3" type="submit" [disabled]="!formData.valid">Login</button>
     </form>
     <div class="text-center fs-6">
-         <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a routerLink="signUp"
-                        style="color: #393f81;">Register here </a></p>
+        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a routerLink="signUp"
+                style="color: #393f81;">Register here </a></p>
     </div>
 </div>
-

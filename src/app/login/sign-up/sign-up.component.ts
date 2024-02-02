@@ -10,28 +10,28 @@ import { SignUpData } from './signUpdata';
 })
 export class SignUpComponent {
   constructor(private logicService: LoginService, private route: Router) { }
-  check: any = false;
+  check: boolean = false;
   sameId: boolean = true;
 
   registerUser(val: SignUpData) {
 
-    
 
 
-      this.logicService.data.filter(item => {
-        if ((val.UserName == item.UserName)) {
-          this.sameId = false;
-        }
-      })
 
-      if (val.pass == val.cfpass && this.sameId ) {
-        this.logicService.data.push(val);
-        this.route.navigate(["/"])
+    this.logicService.data.filter(item => {
+      if ((val.UserName == item.UserName)) {
+        this.sameId = false;
       }
-      else {
-        alert('something went wrong')
-      }
+    })
+
+    if (val.pass == val.cfpass && this.sameId) {
+      this.logicService.data.push(val);
+      this.route.navigate(["/"])
     }
- 
+    else {
+      alert('something went wrong')
+    }
   }
+
+}
 
