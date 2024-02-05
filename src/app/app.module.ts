@@ -12,6 +12,7 @@ import { BranchComponent } from './home/branch/branch.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FavouriteComponent } from './home/favourite/favourite.component';
+import { AddEmployeeComponent } from './home/add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FavouriteComponent } from './home/favourite/favourite.component';
     BranchComponent,
     SignUpComponent,
     PageNotFoundComponent,
-    FavouriteComponent
+    FavouriteComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,

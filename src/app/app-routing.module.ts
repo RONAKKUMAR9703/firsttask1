@@ -12,6 +12,7 @@ import { PermissionGuard } from './permission.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { Resolver, Resolver2, Resolver3 } from './resolver.guard';
 import { FavouriteComponent } from './home/favourite/favourite.component';
+import { AddEmployeeComponent } from './home/add-employee/add-employee.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'signUp', component: SignUpComponent, canActivate: [CanDeactivate] },
   { path: 'login/signUp', redirectTo: 'signUp', pathMatch: 'full' },
   { path: 'favourite', component: FavouriteComponent },
+  { path: 'add', component: AddEmployeeComponent },
   { path: '**', component: PageNotFoundComponent }
 
 

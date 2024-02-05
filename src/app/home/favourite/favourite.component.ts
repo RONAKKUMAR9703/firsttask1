@@ -1,6 +1,7 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { HomeDataService, User } from '../homeShared/home-data.service';
 import { Branch } from '../homeShared/branchlist';
+import { BehaviorSubject, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-favourite',
@@ -10,20 +11,44 @@ import { Branch } from '../homeShared/branchlist';
 export class FavouriteComponent implements OnInit {
 
  
-  // userarray2:User={EmpName: '', Id: '', CompanyName: '', BranchName: ''};
-  arr:User[]=this.dataser.userarray;
+  userarray:User[]=[];
+  // arr:User[]=this.dataser.userarray;
   flag:boolean=false;
+  // fav:any
   constructor(private dataser:HomeDataService){}
 
+
+  
   ngOnInit() {
+
+
+     this.dataser.fav.pipe(
+      map(
+        n=>{
+          if(n.Id=="2")
+      {
+        alert("value is 2 ")
+        return n;
+      }
+      return n; 
+    }
+      
+      )                                                                     
+     )
+     
+     
+     .subscribe((item:User)=>{
+      this.userarray.push(item);
+      
+    
+      
+    })
+
+  }
+
+
     
   
-    this.dataser.fav.subscribe((item:User)=>{
-      
-        this.dataser.receiveData(item)
-      console.log(this.arr)
-    })
 }
 
 
-}

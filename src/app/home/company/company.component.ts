@@ -40,7 +40,7 @@ export class CompanyComponent implements OnInit {
 
 
 
-  delete(val: Company) {
+  deleteOpp(val: Company) {
 
     this.index = this.viewArray2.findIndex((ele) => {
       return ele.CompanyId === val.CompanyId && ele.CompanyName === val.CompanyName

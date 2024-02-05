@@ -38,7 +38,7 @@ export class EmployeeComponent implements OnInit {
   }
 
 
-  delete(val: Employee) {
+  deleteOpp(val: Employee) {
 
     this.index = this.viewArray.findIndex((ele) => {
       return ele.EmpId === val.EmpId && ele.EmpName === val.EmpName

@@ -14,10 +14,10 @@
                 <td>{{ item. EmpName }}</td>
                 <td>{{ item.EmpId }}</td>
                 <td *ngIf="datarole.role==='Admin'|| datarole.role==='superAdmin'">
-                    <a (click)="edit(item)"><i class="bi bi-pencil"></i></a>
+                    <button type="button" class="btn btn-success" (click)="edit(item)"><i class="bi bi-pencil-fill"></i></button>
                 </td>
                 <td *ngIf="datarole.role==='superAdmin'">
-                    <a (click)="delete(item)"><i class="bi bi-trash"></i></a>
+                    <button type="button" class="btn btn-danger" (click)="deleteOpp(item)"><i class="bi bi-trash3"></i></button>
                 </td>
 
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Employee } from './employeeList';
 import { Company } from './companylist';
 import { Branch } from './branchlist';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, of ,map} from 'rxjs';
 import { UserDetail } from './userdetail';
 
 
@@ -56,24 +56,31 @@ export class HomeDataService {
     { BranchName: "QA tester", BranchId: "5" }
   ]
 
-   fav = new BehaviorSubject<User>({ EmpName: "", Id: "", CompanyName: "", BranchName: "" });
-  receive(data: User) {
+  
 
+
+  fav = new BehaviorSubject<User>({ EmpName: "", Id: "", CompanyName: "", BranchName: "" });
+
+  receive(data: User) {
+  
     this.fav.next(data);
   }
 
-  receiveData(data:User){
-    if(!this.userarray.includes(data)){
 
-      this.userarray.push(data)
-    }
-    // this.fav.subscribe((item:User)=>{
-    //   // this.userarray.push(item);
-    //   this.userarray={EmpName: item.EmpName, Id: item.Id, CompanyName: item.CompanyName, BranchName: item.BranchName}
+
+
+  // receiveData(data:User){
+  //   if(!this.userarray.includes(data)){
+
+  //     this.userarray.push(data)
+  //   }
+  //   // this.fav.subscribe((item:User)=>{
+  //     // this.userarray.push(item);
+  //   //   this.userarray={EmpName: item.EmpName, Id: item.Id, CompanyName: item.CompanyName, BranchName: item.BranchName}
       
-    // })
-    // return this.userarray;
-  }
+  //   // })
+  //   // return this.userarray;
+  // }
 
   getallemployee() {
     return new Observable((sub) => {
