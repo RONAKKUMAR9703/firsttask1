@@ -1,21 +1,24 @@
-<form class="enterOrder" style="margin-top: 7rem; background-image: url(https://t3.ftcdn.net/jpg/03/51/51/28/360_F_351512882_2kFH8IaSe4lyA7SXBLzEXyGKNEgbO1iH.jpg);">
+
+<form #formData="ngForm" (ngSubmit)="addEmployee(formData.value)"
+class="enterOrder" style="margin-top: 7rem; background-image: url(https://t3.ftcdn.net/jpg/03/51/51/28/360_F_351512882_2kFH8IaSe4lyA7SXBLzEXyGKNEgbO1iH.jpg);">
 	<h4 class="enterOrderHeader">
 		Employee Information
 	</h4>
 	<br>
 	<label>Id</label>
-	<input type="text" name="Id">
+	<input type="text" ngModel  name="Id" required>
 
 	<label>Employee Name</label>
-	<input type="text" name="firstName">
+	<input type="text" ngModel name="EmpName" required>
 
 	<label>Company Name</label>
-	<input type="text" name="firstName">
+	<input type="text" ngModel name="CompanyName" required>
 
 	<label>Branch Name</label>
-	<input type="text" name="firstName">
+	<input type="text"  ngModel name="BranchName" required>
 	<br><br><br>
-	<input type="button"  routerLink="/home" class="redButton" value="Cancel">
-	<input class="blueButton"  type="submit" value="Add">
+	<input type="button"  routerLink="/home" class="redButton" value="Back">
+	<input class="blueButton"  type="submit" value="Add" >
+	<input class="greenButton" (click)="resetFun()" type="submit" value="reset" >
 	<br>
 </form>

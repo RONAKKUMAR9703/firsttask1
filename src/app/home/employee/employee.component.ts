@@ -1,29 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { HomeDataService } from '../homeShared/home-data.service';
 
 import { Employee } from '../homeShared/employeeList';
 import { LoginService } from 'src/app/shared/login.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserLoginData } from 'src/app/shared/userlogindata';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
-export class EmployeeComponent implements OnInit {
+export class EmployeeComponent implements OnInit,DoCheck {
 
   constructor(private dataservice: HomeDataService, private route: ActivatedRoute, private ls: LoginService) {
     this.viewArray = route.snapshot.data['value']
   }
-
+  subscription :  Subscription | undefined;
   viewArray: Employee[] = [];
   EditArray: Employee[] = [];
+  filterArr:any[]=[];
+  isFilterArray:boolean=false;
   id: number = 0;
   index: number = 0;
   data: string | null = '';
   view: boolean = true;
   datarole: any;
+  search=''
   // isPermission:any;
   AuthDelete: boolean = false;
 
@@ -73,4 +77,34 @@ export class EmployeeComponent implements OnInit {
     this.EditArray = [];
     this.AuthDelete = false;
   }
-}
+
+ 
+    
+ 
+  ngDoCheck() {
+    // if () {
+      if (this.filterArr.length > 0) {
+        this.isFilterArray = true;
+      }
+      this.dataservice.filterSub.subscribe(i=>{
+        console.log(i);
+        if(i!==undefined){
+        this.search=i
+        }
+        console.log("search",this.search);
+       
+      })
+ 
+      this.filterArr=this.viewArray.filter(e=>{
+        console.log("",e.EmpName.includes(this.search));
+       
+        return e.EmpName.toLowerCase().includes(this.search)
+      })
+  }
+ 
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+  }
+ 
+  }
+

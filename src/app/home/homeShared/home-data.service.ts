@@ -3,32 +3,30 @@ import { Injectable } from '@angular/core';
 import { Employee } from './employeeList';
 import { Company } from './companylist';
 import { Branch } from './branchlist';
-import { BehaviorSubject, Observable, Subject, of ,map} from 'rxjs';
-import { UserDetail } from './userdetail';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+
 
 
 export class User {
-  EmpName: string | null = null
-  Id: string | null = null
-  CompanyName: string | null = null
-  BranchName: string | null = null
+  Id: string = ""
+  EmpName: string = ""
+  CompanyName: string = ""
+  BranchName: string = ""
 }
 @Injectable({
   providedIn: 'root'
 })
 export class HomeDataService {
-  userarray:User[]=[];
-  // userarray:User={EmpName: '', Id: '', CompanyName: '', BranchName: ''};
-  // public favEle = this.fav.asObservable();
+  userarray: User[] = [];
 
   constructor() { }
 
   userDetail: User[] = [
-    { EmpName: "ronak", Id: "1", CompanyName: "BTL", BranchName: "Developer" },
-    { EmpName: "urvish", Id: "2", CompanyName: "Google", BranchName: "Sr.Developer" },
-    { EmpName: "manthan", Id: "3", CompanyName: "Microsoft", BranchName: "HR" },
-    { EmpName: "dharmik", Id: "4", CompanyName: "Oracle", BranchName: "Manager" },
-    { EmpName: "arjun", Id: "5", CompanyName: "Apple", BranchName: "QA tester" }
+    { Id: "1", EmpName: "ronak", CompanyName: "BTL", BranchName: "Developer" },
+    { Id: "2", EmpName: "urvish", CompanyName: "Google", BranchName: "Sr.Developer" },
+    { Id: "3", EmpName: "manthan", CompanyName: "Microsoft", BranchName: "HR" },
+    { Id: "4", EmpName: "dharmik", CompanyName: "Oracle", BranchName: "Manager" },
+    { Id: "5", EmpName: "arjun", CompanyName: "Apple", BranchName: "QA tester" }
   ]
 
   empDetail: Employee[] = [
@@ -56,31 +54,6 @@ export class HomeDataService {
     { BranchName: "QA tester", BranchId: "5" }
   ]
 
-  
-
-
-  fav = new BehaviorSubject<User>({ EmpName: "", Id: "", CompanyName: "", BranchName: "" });
-
-  receive(data: User) {
-  
-    this.fav.next(data);
-  }
-
-
-
-
-  // receiveData(data:User){
-  //   if(!this.userarray.includes(data)){
-
-  //     this.userarray.push(data)
-  //   }
-  //   // this.fav.subscribe((item:User)=>{
-  //     // this.userarray.push(item);
-  //   //   this.userarray={EmpName: item.EmpName, Id: item.Id, CompanyName: item.CompanyName, BranchName: item.BranchName}
-      
-  //   // })
-  //   // return this.userarray;
-  // }
 
   getallemployee() {
     return new Observable((sub) => {
@@ -105,7 +78,6 @@ export class HomeDataService {
       }, 1000)
     })
   }
-
 
   viewAllData() {
     return this.userDetail;
@@ -137,8 +109,21 @@ export class HomeDataService {
     this.companyDetail.splice(refid, 0, { CompanyName: CompanyName, CompanyId: CompanyId })
     // this.userDetail[]
   }
+
+
+  fav = new BehaviorSubject<User>({ EmpName: "", Id: "", CompanyName: "", BranchName: "" });
+
+  receive(data: User) {
+
+    this.fav.next(data);
+  }
+
+
   authentication() {
     return localStorage.getItem('token')
   }
+
+
+  filterSub =new Subject<string>()
 }
 

@@ -1,4 +1,4 @@
-<div class="table-wrapper">
+<div class="table-wrapper" *ngIf="!isFilterArray">
     <table id="t" class="fl-table">
         <thead>
 
@@ -27,6 +27,41 @@
 
     </table>
 </div>
+
+
+
+<div class="table-wrapper" *ngIf="isFilterArray">
+    <table id="t" class="fl-table">
+        <thead>
+
+            <tr>
+                <th>Employee Name</th>
+                <th>Employee Id</th>
+                <th *ngIf="datarole.role==='Admin'|| datarole.role==='superAdmin'">Edit</th>
+                <th *ngIf="datarole.role==='superAdmin'">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of filterArr">
+                <td>{{ item. EmpName }}</td>
+                <td>{{ item.EmpId }}</td>
+                <td *ngIf="datarole.role==='Admin'|| datarole.role==='superAdmin'">
+                    <button type="button" class="btn btn-success" (click)="edit(item)"><i class="bi bi-pencil-fill"></i></button>
+                </td>
+                <td *ngIf="datarole.role==='superAdmin'">
+                    <button type="button" class="btn btn-danger" (click)="deleteOpp(item)"><i class="bi bi-trash3"></i></button>
+                </td>
+
+
+            </tr>
+
+        </tbody>
+
+    </table>
+</div>
+
+
+
 
 
 <div *ngIf="view">

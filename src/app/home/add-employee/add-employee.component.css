@@ -46,6 +46,36 @@ cancel, etc.
 	top: 1px;
 }
 
+.greenButton {
+	-moz-box-shadow: inset 0px -3px 7px 0px #237c32;
+	-webkit-box-shadow: inset 0px -3px 7px 0px #106b17;
+	box-shadow: inset 0px -3px 7px 0px #065519;
+	background-color: #0f792f;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #031401;
+	display: inline-block;
+	cursor: pointer;
+	color: #fff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 9px 23px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #263666;
+}
+
+.greenButton:hover {
+	background-color: #0d530a;
+}
+
+.greenButton:active {
+	position: relative;
+	top: 1px;
+}
+
+
+
 .redButton {
 	-moz-box-shadow: inset 0px -3px 7px 0px #8a2a21;
 	-webkit-box-shadow: inset 0px -3px 7px 0px #8a2a21;
