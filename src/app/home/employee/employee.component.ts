@@ -98,7 +98,7 @@ export class EmployeeComponent implements OnInit,DoCheck {
       this.filterArr=this.viewArray.filter(e=>{
         console.log("",e.EmpName.includes(this.search));
        
-        return e.EmpName.toLowerCase().includes(this.search)
+        return e.EmpName.toLowerCase().includes(this.search.toLowerCase())
       })
   }
  
